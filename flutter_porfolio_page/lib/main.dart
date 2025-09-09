@@ -38,6 +38,22 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(
+        useMaterial3: true,
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.black54),
+        scaffoldBackgroundColor: Colors.white,
+        appBarTheme: const AppBarTheme(
+          color: Colors.black87,
+          centerTitle: false,
+          elevation: 0
+        ),
+        progressIndicatorTheme: const ProgressIndicatorThemeData(),
+      ),
+      darkTheme: ThemeData(
+        useMaterial3: true,
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.black12, brightness: Brightness.dark),
+      ),
+      themeMode: ThemeMode.system,
       debugShowCheckedModeBanner: false,
       title: 'Dan HB',
       onGenerateRoute: FRouter.router.generator,
