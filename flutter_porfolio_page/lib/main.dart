@@ -27,7 +27,6 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-
 @override
   void initState() {
     super.initState();
@@ -38,6 +37,26 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(
+      useMaterial3: true,
+      // Paleta neutra (ajústala a tu marca)
+      colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF111318)),
+      // Sin efectos Material
+      splashFactory: NoSplash.splashFactory,
+      splashColor: Colors.transparent,
+      highlightColor: Colors.transparent,
+      hoverColor: Colors.transparent,
+      focusColor: Colors.transparent,
+      // Sin animaciones de página "Material"
+      pageTransitionsTheme: const PageTransitionsTheme(builders: {
+        TargetPlatform.android: NoTransitions(),
+        TargetPlatform.iOS: NoTransitions(),
+        TargetPlatform.linux: NoTransitions(),
+        TargetPlatform.macOS: NoTransitions(),
+        TargetPlatform.windows: NoTransitions(),
+        TargetPlatform.fuchsia: NoTransitions(),
+      }),
+    ),
       debugShowCheckedModeBanner: false,
       title: 'Daniel HB',
       onGenerateRoute: FRouter.router.generator,
@@ -53,4 +72,16 @@ class _MyAppState extends State<MyApp> {
       initialRoute: '/home',
     );
   }
+}
+
+class NoTransitions extends PageTransitionsBuilder {
+  const NoTransitions();
+
+  @override
+  Widget buildTransitions<T>(route, context, animation, secondary, child) => child;
+}
+
+class NoGlowScrollBehavior extends ScrollBehavior {
+  @override
+  Widget buildOverscrollIndicator(BuildContext c, Widget child, ScrollableDetails d) => child;
 }

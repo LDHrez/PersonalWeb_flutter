@@ -71,11 +71,17 @@ class _HomeBody extends StatelessWidget {
           height: double.infinity,
           color: Colors.black54,
           child: Padding(
-            padding: bp.isMobile ? EdgeInsets.only(top: screenSize.height * 0.45) :  EdgeInsets.only(left: screenSize.width * 0.5),
+            padding: EdgeInsets.only(left: screenSize.width * 0.5),
             child: Image.asset('assets/images/me_art.PNG', fit: BoxFit.cover),
           ),
         ),
-        bp.isMobile ? const VerticalGradient() : const HorizontalGradient(),
+        const HorizontalGradient(),
+        Container(
+          width: double.infinity,
+          height: double.infinity,
+          color: bp.isMobile ? Colors.black54 : Colors.transparent,
+        ),
+        
         PageView(
           physics: const ClampingScrollPhysics(),
           allowImplicitScrolling: true,

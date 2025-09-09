@@ -171,11 +171,12 @@ class HomeSingleView extends StatelessWidget {
   );
   }
   Widget mobileView(Size screenSize) {
-    return Expanded(
+    return SingleChildScrollView(
+      physics: NeverScrollableScrollPhysics(),
       child: Padding(
-        padding: const EdgeInsets.all(20),
+        padding: const EdgeInsets.symmetric(vertical: 200, horizontal: 20),
         child: Column(
-          mainAxisSize: MainAxisSize.min,
+          mainAxisSize: MainAxisSize.max,
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -197,8 +198,7 @@ class HomeSingleView extends StatelessWidget {
               ),
               textAlign: TextAlign.left,
             ),
-              
-            SizedBox(height: 50),
+            SizedBox(height: 20),
             FlipInX(child: Text(
               services,
               style: GoogleFonts.poppins(
@@ -207,33 +207,27 @@ class HomeSingleView extends StatelessWidget {
               ),
               textAlign: TextAlign.left,
             ),),
-              
-            SizedBox(height: 50),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                OutlinedButton(
-                  onPressed: mailToFunction,
-                  style: OutlinedButton.styleFrom(
-                    side: BorderSide(color: Colors.white),
-                    padding: EdgeInsets.symmetric(
-                      horizontal: 30,
-                      vertical: 15,
-                    ),
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                  ),
-                  child: Text(
-                    buttonText,
-                    style: GoogleFonts.poppins(
-                      fontSize: 15,
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
+            SizedBox(height: 20),
+            OutlinedButton(
+              onPressed: mailToFunction,
+              style: OutlinedButton.styleFrom(
+                side: BorderSide(color: Colors.white),
+                padding: EdgeInsets.symmetric(
+                  horizontal: 30,
+                  vertical: 15,
                 ),
-              ],
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(8),
+                ),
+              ),
+              child: Text(
+                buttonText,
+                style: GoogleFonts.poppins(
+                  fontSize: 15,
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
             ),
             
           ],
@@ -248,8 +242,8 @@ class HomeSingleView extends StatelessWidget {
                       scheme: 'mailto',
                       path: 'daniel.hb.015@gmail.com',
                       queryParameters: {
-                        'subject': 'Contacto desde pagina web',
-                        'body': 'Hola Daniel, quisiera contactarte porque...'
+                        'subject': "Contacto desde pagina web",
+                        'body': "Hola Daniel, quisiera contactarte porque..."
                       },
                     );
                     if (await canLaunchUrl(emailLaunchUri)){
