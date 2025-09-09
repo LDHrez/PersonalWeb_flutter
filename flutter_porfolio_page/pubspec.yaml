@@ -1,5 +1,5 @@
 name: flutter_porfolio_page
-description: "A new Flutter project."
+description: "Daniel Hernandez - Portfolio Page"
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
@@ -84,15 +84,15 @@ flutter:
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
 
-flutter_launcher_icons:
-  android: true
-  ios: true
-  image_path: "assets/images/rocket_logo.png"  # ícono base cuadrado
-  adaptive_icon_background: "#111318"  # Android adaptive background
-  min_sdk_android: 21
-  remove_alpha_ios: false
-  web:
-    generate: true
-    image_path: "assets/images/rocket_logo.png"
-    background_color: "#111318"
-    theme_color: "#0E6DFD"
+# flutter_launcher_icons:
+#   android: true
+#   ios: true
+#   image_path: "assets/images/rocket_logo.png"  # ícono base cuadrado
+#   adaptive_icon_background: "#111318"  # Android adaptive background
+#   min_sdk_android: 21
+#   remove_alpha_ios: false
+#   web:
+#     generate: true
+#     image_path: "assets/images/rocket_logo.png"
+#     background_color: "#111318"
+#     theme_color: "#0E6DFD"
